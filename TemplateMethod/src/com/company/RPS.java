@@ -16,13 +16,8 @@ public class RPS extends Game {
     @Override
     void makePlay(int player) {
         endOfGame();
-        System.out.println("TO EXIT GAME PRESS 9");
         System.out.println("PLAYER 1: Enter choice");
         int player1 = input.nextInt();  // Reads player1 user input
-        if(player1 == 9) {
-            printWinner();
-            System.exit(0);
-        }
         System.out.println("PLAYER 2: Enter choice");
         int player2 = input.nextInt();  // Reads player2 user input
         int algorithm = (3 + player1 - player2) % 3;
@@ -41,13 +36,14 @@ public class RPS extends Game {
 
     @Override
     boolean endOfGame() {
-            return false;
+        if (score1 == 3 || score2 == 3) {
+            return true;
         }
+        return false;
+    }
     @Override
     void printWinner() {
-        if(endOfGame())
         if(score2 > score1) System.out.print("PLAYER2 wins");
-        if(score2 == score1) System.out.print("IT'S A TIE");
         else {
             System.out.print("PLAYER1 wins");
         }
