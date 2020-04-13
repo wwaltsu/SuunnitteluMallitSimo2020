@@ -4,19 +4,19 @@ public class Superior implements Ichain {
     private Ichain nextInIchain;
 
     @Override
-    public void setNextChain(Ichain nextIchain) {
-        nextInIchain = nextIchain;
+    public void setNextChain(Ichain nextChain) {
+        nextInIchain = nextChain;
 
     }
 
     @Override
-    public void calculate(Begging request) {
+    public void newSalary(Begging request) {
         if (request.getRequestedWagePercent() > 0 && request.getRequestedWagePercent() <= 2 ) {
-            System.out.println("Annan palkkakorotuksen uusi palkkasi on nyt " + request.getRequestedWagePercent() + "% suurempi");
+            System.out.println("Lähiesimies: annan "+ request.getRequestedWagePercent() + "% palkkakorotuksen uusi palkkasi on nyt " + request.getNewSalary() + "€");
 
         } else {
-            System.out.println("Mene kysymään päälliköltä, en saa päättää noin suuresta palkankorotuksesta ");
-            nextInIchain.calculate(request);
+            System.out.println("Lähiesimies: mene kysymään päälliköltä, en saa päättää noin suuresta palkankorotuksesta ");
+            nextInIchain.newSalary(request);
 
         }
     }

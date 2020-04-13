@@ -1,16 +1,23 @@
 package com.kmr;
 
 public class Begging {
-    private int requestedWagePercent;
+    private double requestedWagePercent;
+    private double salary;
+    private double newSalary;
 
-    public Begging(int requestedWagePercent){
+    public Begging(double requestedWagePercent, double salary) {
         this.requestedWagePercent = requestedWagePercent;
+        this.salary = salary;
+        this.newSalary = (requestedWagePercent/100 + 1) * salary;
     }
 
-    public int getRequestedWagePercent() {
+    public double getRequestedWagePercent() {
         return requestedWagePercent;
     }
 
+    public double getNewSalary() {
+        return newSalary;
+    }
 }
 
 

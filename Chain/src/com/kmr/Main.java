@@ -2,22 +2,26 @@ package com.kmr;
 
 public class Main {
     public static void main(String[] args) {
-        Ichain ichainCalc1 = new Superior();
-        Ichain ichainCalc2 = new Boss();
-        Ichain ichainCalc3 = new CEO();
+        Ichain superior = new Superior();
+        Ichain boss = new Boss();
+        Ichain ceo = new CEO();
 
-        ichainCalc1.setNextChain(ichainCalc2);
-        ichainCalc2.setNextChain(ichainCalc3);
+        superior.setNextChain(boss);
+        boss.setNextChain(ceo);
 
-        Begging request = new Begging(1);
-        Begging request1 = new Begging(3);
-        Begging request2 = new Begging(8);
-        Begging request3 = new Begging(20);
+        Begging request = new Begging(1,5000);
+        Begging request1 = new Begging(3,7500);
+        Begging request2 = new Begging(8,2000);
+        Begging request3 = new Begging(20,4000);
 
-        ichainCalc1.calculate(request);
-        ichainCalc1.calculate(request1);
-        ichainCalc1.calculate(request2);
-        ichainCalc1.calculate(request3);
+        System.out.println("Ensimmäinen pyyntö:");
+        superior.newSalary(request);
+        System.out.println("Toinen pyyntö:");
+        superior.newSalary(request1);
+        System.out.println("Kolmas pyyntö:");
+        superior.newSalary(request2);
+        System.out.println("Neljäs pyyntö:");
+        superior.newSalary(request3);
 
 
 
