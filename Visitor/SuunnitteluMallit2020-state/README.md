@@ -1,1 +1,0 @@
-"# SuunnitteluMallit2020" 
