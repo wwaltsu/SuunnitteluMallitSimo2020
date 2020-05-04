@@ -1,6 +1,6 @@
 package com.kmr;
 
-public class HourPointer {
+public class HourPointer implements Cloneable {
     private int hours;
 
         public void increaseHours() {
@@ -13,5 +13,9 @@ public class HourPointer {
             this.hours = hours;
         }
 
+        public HourPointer clone() throws CloneNotSupportedException {
+            HourPointer hourPointer = null;
+            return (HourPointer) super.clone();
 
+        }
     }

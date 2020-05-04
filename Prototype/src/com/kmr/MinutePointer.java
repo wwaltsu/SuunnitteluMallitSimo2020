@@ -1,8 +1,6 @@
 package com.kmr;
 
-import java.util.concurrent.TimeUnit;
-
-public class MinutePointer {
+public class MinutePointer implements Cloneable {
     private int minute;
     public void increaseMinute() {
         minute++;
@@ -14,5 +12,11 @@ public class MinutePointer {
         return minute;
     }
 
+    public MinutePointer clone() throws CloneNotSupportedException {
+        MinutePointer MinutePointer = null;
+        return (MinutePointer) super.clone();
 
+    }
 }
+
+

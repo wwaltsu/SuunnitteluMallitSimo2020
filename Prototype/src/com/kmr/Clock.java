@@ -1,5 +1,6 @@
 package com.kmr;
 
+import java.time.chrono.ChronoLocalDate;
 import java.util.concurrent.TimeUnit;
 
 public class Clock implements Cloneable {
@@ -7,24 +8,24 @@ public class Clock implements Cloneable {
     SecondPointer secondPointer = new SecondPointer();
     HourPointer hourPointer = new HourPointer();
 
+
     public Clock(int hours, int minutes, int seconds) {
         hourPointer.setHours(hours);
         minutePointer.setMinute(minutes);
         secondPointer.setSeconds(seconds);
-
     }
     public void run() {
-        for(int i = 0; i < 5; i ++) {
+        for (int i = 0; i < 5; i++) {
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             secondPointer.increaseSeconds();
-            if (secondPointer.getSeconds()==60){
+            if (secondPointer.getSeconds() == 60) {
                 secondPointer.setSeconds(0);
                 minutePointer.increaseMinute();
-                if(minutePointer.getMinute() == 60) {
+                if (minutePointer.getMinute() == 60) {
                     hourPointer.increaseHours();
                 }
             }
@@ -34,20 +35,22 @@ public class Clock implements Cloneable {
         System.out.println("Run has ended");
         System.out.println("****************************");
     }
+
     public Clock clone() {
         Clock clock = null;
         try {
             try {
                 clock = (Clock) super.clone();
+                clock.hourPointer.clone();
+                clock.secondPointer.clone();
+                clock.minutePointer.clone();
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return clock;
     }
-
 }
